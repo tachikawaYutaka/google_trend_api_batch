@@ -73,8 +73,19 @@ public class GoogleTrendApiBatchApplication implements CommandLineRunner {
                 String dir = argsList.get(2);
                 String fileName = argsList.get(3);
 
+                File dirPath = new File(dir);
+                if(!dirPath.exists()) {
+                    if(dirPath.mkdirs()){
+                        logger.info("create dir");
+                    }
+                }
+
                 String filePath = dir + File.separator + fileName;
                 File newFile = new File(filePath);
+                if(newFile.createNewFile()) {
+                    logger.info("create file");
+                }
+
                 if(checkBeforeWriteFile(newFile)) {
                     // 文字コードを指定する
                     PrintWriter p_writer = null;
