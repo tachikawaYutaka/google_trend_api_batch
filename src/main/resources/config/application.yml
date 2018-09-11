@@ -1,0 +1,6 @@
+settings:
+    url: https://trends.google.com/trends/api/dailytrends
+logging:
+    file: logs/google_trend_api_batch.log
+    level:
+        org.springframework.web: INFO
